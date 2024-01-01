@@ -1,0 +1,63 @@
+    ChangeColor_PTD[playerid][30] = CreatePlayerTextDraw(playerid, 207.9998, 222.1999, "LD_SPAC:white");
+    PlayerTextDrawLetterSize(playerid, ChangeColor_PTD[playerid][30], 0.4799, 1.1200);
+    PlayerTextDrawTextSize(playerid, ChangeColor_PTD[playerid][30], 50.0000, 12.0000);
+    PlayerTextDrawAlignment(playerid, ChangeColor_PTD[playerid][30], 1);
+    PlayerTextDrawColor(playerid, ChangeColor_PTD[playerid][30], 92);
+    PlayerTextDrawBackgroundColor(playerid, ChangeColor_PTD[playerid][30], 255);
+    PlayerTextDrawFont(playerid, ChangeColor_PTD[playerid][30], 4);
+    PlayerTextDrawSetProportional(playerid, ChangeColor_PTD[playerid][30], 0);
+    PlayerTextDrawSetShadow(playerid, ChangeColor_PTD[playerid][30], 0);
+
+    ChangeColor_PTD[playerid][31] = CreatePlayerTextDraw(playerid, 207.9998, 235.4739, "LD_SPAC:white");
+    PlayerTextDrawLetterSize(playerid, ChangeColor_PTD[playerid][31], 0.4799, 1.1200);
+    PlayerTextDrawTextSize(playerid, ChangeColor_PTD[playerid][31], 50.0000, 12.0000);
+    PlayerTextDrawAlignment(playerid, ChangeColor_PTD[playerid][31], 1);
+    PlayerTextDrawColor(playerid, ChangeColor_PTD[playerid][31], 92);
+    PlayerTextDrawBackgroundColor(playerid, ChangeColor_PTD[playerid][31], 255);
+    PlayerTextDrawFont(playerid, ChangeColor_PTD[playerid][31], 4);
+    PlayerTextDrawSetProportional(playerid, ChangeColor_PTD[playerid][31], 0);
+    PlayerTextDrawSetShadow(playerid, ChangeColor_PTD[playerid][31], 0);            
+    
+    ChangeColor_PTD[playerid][32] = CreatePlayerTextDraw(playerid, 233.9998, 237.2888, "$50000");
+    PlayerTextDrawLetterSize(playerid,  ChangeColor_PTD[playerid][32], 0.1490, 0.8751);
+    PlayerTextDrawTextSize(playerid,  ChangeColor_PTD[playerid][32], 54.0000, 1.1282);
+    PlayerTextDrawAlignment(playerid,  ChangeColor_PTD[playerid][32], 2);
+    PlayerTextDrawColor(playerid,  ChangeColor_PTD[playerid][32], -1);
+    PlayerTextDrawUseBox(playerid,  ChangeColor_PTD[playerid][32], 1);
+    PlayerTextDrawBoxColor(playerid,  ChangeColor_PTD[playerid][32], 16777216);
+    PlayerTextDrawBackgroundColor(playerid,  ChangeColor_PTD[playerid][32], 255);
+    PlayerTextDrawFont(playerid,  ChangeColor_PTD[playerid][32], 2);
+    PlayerTextDrawSetProportional(playerid,  ChangeColor_PTD[playerid][32], 1);
+    PlayerTextDrawSetShadow(playerid,  ChangeColor_PTD[playerid][32], 0);
+
+    ChangeColor_PTD[playerid][33] = CreatePlayerTextDraw(playerid, 208.0001, 222.6145, "LD_SPAC:white");
+    PlayerTextDrawLetterSize(playerid, ChangeColor_PTD[playerid][33], 0.4799, 1.1200);
+    PlayerTextDrawTextSize(playerid, ChangeColor_PTD[playerid][33], 2.0000, 11.0000);
+    PlayerTextDrawAlignment(playerid, ChangeColor_PTD[playerid][33], 1);
+    PlayerTextDrawColor(playerid, ChangeColor_PTD[playerid][33], InventColor[PI[playerid][pInvColors]][1]);
+    PlayerTextDrawBackgroundColor(playerid, ChangeColor_PTD[playerid][33], 255);
+    PlayerTextDrawFont(playerid, ChangeColor_PTD[playerid][33], 4);
+    PlayerTextDrawSetProportional(playerid, ChangeColor_PTD[playerid][33], 0);
+    PlayerTextDrawSetShadow(playerid, ChangeColor_PTD[playerid][33], 0);
+
+    ChangeColor_PTD[playerid][34] = CreatePlayerTextDraw(playerid, 208.0000, 235.8885, "LD_SPAC:white");
+    PlayerTextDrawLetterSize(playerid,  ChangeColor_PTD[playerid][34], 0.4799, 1.1200);
+    PlayerTextDrawTextSize(playerid,  ChangeColor_PTD[playerid][34], 2.0000, 11.0000);
+    PlayerTextDrawAlignment(playerid,  ChangeColor_PTD[playerid][34], 1);
+    PlayerTextDrawColor(playerid,  ChangeColor_PTD[playerid][34], InventColor[PI[playerid][pInvColors]][1]);
+    PlayerTextDrawBackgroundColor(playerid,  ChangeColor_PTD[playerid][34], 255);
+    PlayerTextDrawFont(playerid,  ChangeColor_PTD[playerid][34], 4);
+    PlayerTextDrawSetProportional(playerid,  ChangeColor_PTD[playerid][34], 0);
+    PlayerTextDrawSetShadow(playerid,  ChangeColor_PTD[playerid][34], 0);
+
+    ChangeColor_PTD[playerid][35] = CreatePlayerTextDraw(playerid, 233.9998, 223.6000, !PI[playerid][pLanguage] ? "CHANCE:5.0" : FixText("ьюмя:5.0"));
+    PlayerTextDrawLetterSize(playerid, ChangeColor_PTD[playerid][35], 0.1490, 0.8751);
+    PlayerTextDrawTextSize(playerid, ChangeColor_PTD[playerid][35], 54.0000, 1.1282);
+    PlayerTextDrawAlignment(playerid, ChangeColor_PTD[playerid][35], 2);
+    PlayerTextDrawColor(playerid, ChangeColor_PTD[playerid][35], -1);
+    PlayerTextDrawUseBox(playerid, ChangeColor_PTD[playerid][35], 1);
+    PlayerTextDrawBoxColor(playerid, ChangeColor_PTD[playerid][35], 16777216);
+    PlayerTextDrawBackgroundColor(playerid, ChangeColor_PTD[playerid][35], 255);
+    PlayerTextDrawFont(playerid, ChangeColor_PTD[playerid][35], 2);
+    PlayerTextDrawSetProportional(playerid, ChangeColor_PTD[playerid][35], 1);
+    PlayerTextDrawSetShadow(playerid, ChangeColor_PTD[playerid][35], 0);

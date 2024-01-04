@@ -31,17 +31,6 @@ stock GetPlayerLauncherName(playerid) {
 	}
 	return version;
 }
-public void:OnPlayerKeyUp(player, key) {}
-public void:OnPlayerKeyDown(player, key) {
-    switch key do {
-        case 73: OnPlayerKeyStateChange(player,KEY_YES,0);
-        case 75: callcmd::key(player);
-        case 76: callcmd::lock(player);
-        case 80: callcmd::phone(player);
-        case 85: callcmd::anims(player,"");
-    }
-}
-
 LoadCountItems() {
     new Cache:result = mysql_query(mysql, "SELECT Item, ItemKolvo, Aks FROM accounts");
 

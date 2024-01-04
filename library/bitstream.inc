@@ -73,95 +73,8 @@ IRPC:PLAYER_SERVER_JOIN(playerid, BitStream:bs)
 
 	return true;
 }
-stock OnFocusBrowser(playerid, browserid, bool:toggle)
-{
-	new BitStream:bs = BS_New();
 
-	BS_WriteValue(bs, PR_UINT8, 220);
-	BS_WriteValue(bs, PR_UINT8, 25);
-	// —------------------------------------
-	BS_WriteValue(bs, PR_UINT32, browserid);
-	BS_WriteValue(bs, PR_BOOL, toggle);
-	playerCefFocus[playerid] = toggle;
-	BS_WriteValue(bs, PR_UINT8, 555);
-	// —------------------------------------
-	PR_SendPacket(bs, playerid);
-	BS_Delete(bs);
-}
 
-stock ExecuteEvent(playerid, const event[])
-{
-	new BitStream:bs = BS_New();
-	BS_WriteValue(bs, PR_UINT8, 220);
-	BS_WriteValue(bs, PR_UINT8, 17);
-	BS_WriteValue(bs, PR_UINT32, 1);
-	BS_WriteValue(bs, PR_UINT32, strlen(event));
-	BS_WriteValue(bs, PR_STRING, event, strlen(event));
-	BS_WriteValue(bs, PR_UINT8, 255);
-	BS_WriteValue(bs, PR_UINT8, 255);
-	BS_WriteValue(bs, PR_UINT8, 255);
-	BS_WriteValue(bs, PR_UINT8, 255);
-	return PR_SendPacket(bs, playerid);
-}
-stock CreateBrowser(playerid, browserid, const url[], hd1, hd2, hd3, hd4)
-{
-	new BitStream:bs = BS_New();
-	BS_WriteValue(bs, PR_UINT8, 220);
-	BS_WriteValue(bs, PR_UINT8, 10);
-	BS_WriteValue(bs, PR_UINT8, hd1);
-	BS_WriteValue(bs, PR_UINT8, hd2);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, hd3);
-	BS_WriteValue(bs, PR_UINT8, hd4);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT8, 0);
-	BS_WriteValue(bs, PR_UINT32, strlen(url));
-	BS_WriteValue(bs, PR_STRING, url, strlen(url));
-	if browserid == 1 *then
-	{
-		BS_WriteValue(bs, PR_UINT32, 12);
-		BS_WriteValue(bs, PR_UINT8, 111);
-		BS_WriteValue(bs, PR_UINT8, 114);
-		BS_WriteValue(bs, PR_UINT8, 55);
-		BS_WriteValue(bs, PR_UINT8, 108);
-		BS_WriteValue(bs, PR_UINT8, 113);
-		BS_WriteValue(bs, PR_UINT8, 56);
-		BS_WriteValue(bs, PR_UINT8, 81);
-		BS_WriteValue(bs, PR_UINT8, 56);
-		BS_WriteValue(bs, PR_UINT8, 104);
-		BS_WriteValue(bs, PR_UINT8, 101);
-		BS_WriteValue(bs, PR_UINT8, 117);
-		BS_WriteValue(bs, PR_UINT8, 114);
-	}
-    else BS_WriteValue(bs, PR_UINT32, 0), BS_WriteValue(bs, PR_STRING, "", 0);
-	BS_WriteValue(bs, PR_UINT32, browserid);
-	BS_WriteValue(bs, PR_UINT16, 0);
-	PR_SendPacket(bs, playerid);
-}
-stock UpdateBrowser(playerid, params1, params2, params3 = -1)
-{
-	new BitStream:bs = BS_New();
-	BS_WriteValue(bs, PR_UINT8, 220);
-	BS_WriteValue(bs, PR_UINT8, params1);
-	BS_WriteValue(bs, PR_UINT8, params2);
-
-	if !(params3 == -1) *then
-		BS_WriteValue(bs, PR_UINT8, 0),
-		BS_WriteValue(bs, PR_UINT8, 0),
-		BS_WriteValue(bs, PR_UINT8, 0),
-		BS_WriteValue(bs, PR_UINT8, params3);
-
-	PR_SendPacket(bs, playerid);
-}
 public OnPlayerStreamIn(playerid, forplayerid)
 {
 	if GetPlayerLauncher(playerid) == 1 && PI[forplayerid][pAdmin] *then {
@@ -183,40 +96,5 @@ public OnPlayerStreamIn(playerid, forplayerid)
 		BS_WriteValue(bs, PR_UINT8, 183);
 		PR_SendPacket(bs, playerid);
 	}
-}
-public OnIncomingPacket(playerid, packetid, BitStream:bs)
-{
-	if packetid == 220 *then
-	{
-		new custom;
-		BS_IgnoreBits(bs, 8);
-		BS_ReadUint8(bs, custom);
-		switch custom do {
-			case 20: {
-				new pm[4];
-				BS_ReadUint8(bs, pm[0]);
-				BS_ReadUint8(bs, pm[1]);
-				BS_IgnoreBits(bs, 16);
-				BS_ReadUint8(bs, pm[2]);
-				BS_ReadUint8(bs, pm[3]);
-				CreateBrowser(playerid,0,"file:///frontend/vue_js/index.html",pm[0],pm[1],pm[2],pm[3]);
-				CreateBrowser(playerid,1,"file:///frontend/svelte_js/index.html",pm[0],pm[1],pm[2],pm[3]);
-			}
-			case 1: 
-			{
-				Chat_Status{playerid} = !Chat_Status{playerid};
-
-				foreach(new i: Player)
-					if !(i == playerid) && GetPlayerLauncher(i) == 1 && ProxDetectorS(20.0, playerid, i) *then
-						UpdateBrowser(i, 108, playerid, Chat_Status{playerid} ? 128 : 0);
-			}
-			default: 
-			{
-				static string_result[300];
-				BS_ReadString32(bs, string_result);
-				ShowAction_CEF(playerid, string_result, custom);
-			}
-		}
-	}
-	return true;
+        return 1;
 }

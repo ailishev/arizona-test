@@ -336,6 +336,7 @@ native ShowPlayerDialog(playerid, dialogid, style, caption[], info[], button1[],
 #define KEY_DOWN				(128)
 #define KEY_LEFT				(-128)
 #define KEY_RIGHT				(128)
+#define KEY_BATTLEPASS (66)
 
 // --------------------------------------------------
 // Forwards (Callback declarations)

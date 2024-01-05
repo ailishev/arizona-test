@@ -1,6 +1,6 @@
 tasks.json
 /.vscode
-/serber.cfg
+/server.cfg
 /samp-server.exe
 /samp-npc.exe
 /announce.exe

@@ -1,2 +1,14 @@
 tasks.json
 /.vscode
+/serber.cfg
+/samp-server.exe
+/samp-npc.exe
+/announce.exe
+/server_log.txt
+/mysql_log.txt
+/crashinfo.txt
+/samp03svr
+/announce
+/README
+/LICENSE
+/samp-npc
